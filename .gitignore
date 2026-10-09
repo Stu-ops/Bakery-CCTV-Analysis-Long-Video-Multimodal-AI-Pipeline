@@ -1,0 +1,18 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+models/
+datasets/
+data/
+outputs/
+*.log
+# Input CCTV video (large binary, provided separately — see README)
+*.mp4
+*.avi
+*.mov
+*.mkv
+artifacts/
+.env
+.DS_Store

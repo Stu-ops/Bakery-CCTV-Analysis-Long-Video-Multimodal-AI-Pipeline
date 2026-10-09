@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purplle AI Store Intelligence Control Center</title>
+    
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/dashboard/corporate.css">
+</head>
+<body>
+
+    <!-- ── Header ── -->
+    <header>
+        <div class="header-title-group">
+            <div class="header-logo">P</div>
+            <div>
+                <h1>Purplle Store Intelligence</h1>
+            </div>
+        </div>
+        <div class="header-meta">
+            <div class="meta-item">
+                <span>Location Context</span>
+                <strong>STORE_BLR_002</strong>
+            </div>
+            <div class="meta-item">
+                <span>Detections Logged</span>
+                <strong id="h-evt-count">0</strong>
+            </div>
+            <div class="status-badge" id="ws-badge">
+                <div class="status-dot"></div>
+                <span id="ws-label">Disconnected</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ── Telemetry Status Bar ── -->
+    <div class="telemetry-bar">
+        <div class="telemetry-item">System Core Status: <span id="ps-status" class="telemetry-val-highlight">Initializing</span></div>
+        <div class="telemetry-item">Network Broadcast Rate: <span id="ps-rate">0.0</span> msg/s</div>
+        <div class="telemetry-item">Active Dispatch Clients: <span id="ps-clients">0</span></div>
+        <div class="telemetry-item">Telemetry Last Sync: <span id="ps-last">--</span></div>
+        <div class="telemetry-item">Server Reference Time: <span id="ps-server">--</span></div>
+    </div>
+
+    <!-- ── Main Dashboard Container ── -->
+    <div class="main-container">
+        
+        <!-- Live Cam grid -->
+        <div>
+            <div class="camera-section-header">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                AI CCTV Surveillance Monitoring Wall
+            </div>
+            
+            <div class="camera-grid">
+                <!-- CAM 1 -->
+                <div class="cam-card" id="camcard-CAM_1">
+                    <div class="cam-header">
+                        <span class="cam-badge">CAM 1</span>
+                        <div class="cam-status"><div class="cam-status-dot"></div><span>FEED</span></div>
+                    </div>
+                    <div class="cam-feed-container">
+                        <img id="feed-CAM_1" src="" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" style="display:none;" />
+                        <div class="cam-feed-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                            <span>No Active Signal</span>
+                        </div>
+                    </div>
+                    <div class="cam-footer-overlay">
+                        <span>FPS: <span class="cam-telemetry-highlight" id="fps-CAM_1">5.0</span></span>
+                        <span>LAT: <span class="cam-telemetry-highlight">24ms</span></span>
+                    </div>
+                </div>
+
+                <!-- CAM 2 -->
+                <div class="cam-card" id="camcard-CAM_2">
+                    <div class="cam-header">
+                        <span class="cam-badge">CAM 2</span>
+                        <div class="cam-status"><div class="cam-status-dot"></div><span>FEED</span></div>
+                    </div>
+                    <div class="cam-feed-container">
+                        <img id="feed-CAM_2" src="" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" style="display:none;" />
+                        <div class="cam-feed-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                            <span>No Active Signal</span>
+                        </div>
+                    </div>
+                    <div class="cam-footer-overlay">
+                        <span>FPS: <span class="cam-telemetry-highlight" id="fps-CAM_2">5.0</span></span>
+                        <span>LAT: <span class="cam-telemetry-highlight">22ms</span></span>
+                    </div>
+                </div>
+
+                <!-- CAM 3 -->
+                <div class="cam-card" id="camcard-CAM_3">
+                    <div class="cam-header">
+                        <span class="cam-badge">CAM 3</span>
+                        <div class="cam-status"><div class="cam-status-dot"></div><span>FEED</span></div>
+                    </div>
+                    <div class="cam-feed-container">
+                        <img id="feed-CAM_3" src="" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" style="display:none;" />
+                        <div class="cam-feed-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                            <span>No Active Signal</span>
+                        </div>
+                    </div>
+                    <div class="cam-footer-overlay">
+                        <span>FPS: <span class="cam-telemetry-highlight" id="fps-CAM_3">5.0</span></span>
+                        <span>LAT: <span class="cam-telemetry-highlight">26ms</span></span>
+                    </div>
+                </div>
+
+                <!-- CAM 4 -->
+                <div class="cam-card" id="camcard-CAM_4">
+                    <div class="cam-header">
+                        <span class="cam-badge">CAM 4</span>
+                        <div class="cam-status"><div class="cam-status-dot"></div><span>FEED</span></div>
+                    </div>
+                    <div class="cam-feed-container">
+                        <img id="feed-CAM_4" src="" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" style="display:none;" />
+                        <div class="cam-feed-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                            <span>No Active Signal</span>
+                        </div>
+                    </div>
+                    <div class="cam-footer-overlay">
+                        <span>FPS: <span class="cam-telemetry-highlight" id="fps-CAM_4">5.0</span></span>
+                        <span>LAT: <span class="cam-telemetry-highlight">28ms</span></span>
+                    </div>
+                </div>
+
+                <!-- CAM 5 -->
+                <div class="cam-card" id="camcard-CAM_5">
+                    <div class="cam-header">
+                        <span class="cam-badge">CAM 5</span>
+                        <div class="cam-status"><div class="cam-status-dot"></div><span>FEED</span></div>
+                    </div>
+                    <div class="cam-feed-container">
+                        <img id="feed-CAM_5" src="" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" style="display:none;" />
+                        <div class="cam-feed-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                            <span>No Active Signal</span>
+                        </div>
+                    </div>
+                    <div class="cam-footer-overlay">
+                        <span>FPS: <span class="cam-telemetry-highlight" id="fps-CAM_5">5.0</span></span>
+                        <span>LAT: <span class="cam-telemetry-highlight">21ms</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Horizontal KPIs -->
+        <div class="kpi-row">
+            <!-- Unique Visitors -->
+            <div class="kpi-card" id="c-visitors">
+                <div class="kpi-icon">👥</div>
+                <div class="kpi-info">
+                    <span class="kpi-label">Unique Customers</span>
+                    <span class="kpi-value" id="v-visitors">0</span>
+                    <span class="kpi-subtitle">Excluding classified staff</span>
+                </div>
+            </div>
+
+            <!-- Conversion Rate -->
+            <div class="kpi-card" id="c-conv">
+                <div class="kpi-icon">🎯</div>
+                <div class="kpi-info">
+                    <span class="kpi-label">Conversion Rate</span>
+                    <span class="kpi-value" id="v-conv">0.0%</span>
+                    <span class="kpi-subtitle">Conversions: <strong id="s-conv">0</strong></span>
+                </div>
+            </div>
+
+            <!-- Queue Depth -->
+            <div class="kpi-card" id="c-queue">
+                <div class="kpi-icon">🧾</div>
+                <div class="kpi-info">
+                    <span class="kpi-label">Queue Depth</span>
+                    <span class="kpi-value" id="v-queue">0</span>
+                    <span class="kpi-subtitle">Avg: <strong id="s-queue">0.0</strong></span>
+                </div>
+            </div>
+
+            <!-- Staff Count -->
+            <div class="kpi-card" id="c-staff">
+                <div class="kpi-icon">👔</div>
+                <div class="kpi-info">
+                    <span class="kpi-label">Classified Staff</span>
+                    <span class="kpi-value" id="v-staff">0</span>
+                    <span class="kpi-subtitle">Filtered from metrics</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Panels -->
+        <div class="bottom-panels">
+            
+            <!-- Funnel Panel -->
+            <div class="panel-card">
+                <div class="panel-head">
+                    <h3>Conversion Funnel</h3>
+                    <span class="panel-sub-label" id="funnel-ts">No data</span>
+                </div>
+                <div class="panel-body">
+                    <div class="funnel-container" id="funnel-container">
+                        <div class="empty-placeholder">
+                            <span>Waiting for pipeline metrics...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Heatmap Panel -->
+            <div class="panel-card">
+                <div class="panel-head">
+                    <h3>Store Zone Heatmap</h3>
+                    <span class="panel-sub-label" id="heatmap-confidence">No data</span>
+                </div>
+                <div class="panel-body" id="heatmap-container">
+                    <div class="empty-placeholder">
+                        <span>Waiting for store zone metrics...</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Event Stream -->
+            <div class="panel-card">
+                <div class="panel-head">
+                    <h3>Live Telemetry Stream</h3>
+                    <span class="panel-sub-label" id="event-rate">0.0 msg/s</span>
+                </div>
+                <div class="panel-body">
+                    <div class="event-log-container" id="event-log">
+                        <div class="empty-placeholder">
+                            <span>Waiting for pipeline events...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Anomalies Console -->
+            <div class="panel-card">
+                <div class="panel-head">
+                    <h3>Anomaly Alerts</h3>
+                    <span class="status-badge" id="anomaly-count" style="padding: 0.15rem 0.5rem; font-size: 0.75rem;">0</span>
+                </div>
+                <div class="panel-body">
+                    <div class="anomaly-console" id="anomaly-container">
+                        <div class="empty-placeholder" style="color: var(--color-success);">
+                            <span>Systems Healthy - No Anomalies Detected</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sparkline Panel -->
+            <div class="panel-card" style="grid-column: span 2;">
+                <div class="panel-head">
+                    <h3>Real-Time Entrance Activity</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="sparkline-container" id="sparkline"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ── Footer ── -->
+    <footer>
+        <div class="footer-left">
+            <div class="footer-dot"></div>
+            <span>Control Center Feed Active</span>
+        </div>
+        <div class="footer-metrics-sync">
+            <div>WS Message Sequence: <span id="f-ws">0</span></div>
+            <div>DB Transactions Loaded: <span id="f-db">0</span></div>
+            <div>Last Updated: <span id="f-updated">--</span></div>
+        </div>
+    </footer>
+
+    <!-- ── JS Logic ── -->
+    <script src="/dashboard/app.js"></script>
+</body>
+</html>

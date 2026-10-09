@@ -1,0 +1,84 @@
+{
+  "STORE_BLR_002": {
+    "store_id": "STORE_BLR_002",
+    "pos_store_id": "ST1008",
+    "name": "Purplle Brigade Road, Bangalore",
+    "cameras": ["CAM_1", "CAM_2", "CAM_3", "CAM_4", "CAM_5"],
+    "zones": {
+      "ENTRY": {
+        "polygon": [[0, 0], [480, 0], [480, 1080], [0, 1080]],
+        "type": "entry_exit",
+        "description": "Store entrance/exit area"
+      },
+      "MAKEUP": {
+        "polygon": [[480, 0], [960, 0], [960, 1080], [480, 1080]],
+        "type": "product_zone",
+        "pos_departments": ["makeup"],
+        "description": "Makeup section — Faces Canada, NY Bae, Maybelline, Lakme, Swiss Beauty"
+      },
+      "SKINCARE": {
+        "polygon": [[960, 0], [1440, 0], [1440, 1080], [960, 1080]],
+        "type": "product_zone",
+        "pos_departments": ["skin"],
+        "description": "Skincare section — COSRX, Good Vibes, DERMDOC, FoxTale, Beauty of Joseon"
+      },
+      "FRAGRANCE": {
+        "polygon": [[0, 0], [0, 0], [0, 0], [0, 0]],
+        "type": "product_zone",
+        "pos_departments": ["fragrance"],
+        "description": "Fragrance section — Carmesi deodorant"
+      },
+      "HAIRCARE": {
+        "polygon": [[0, 0], [0, 0], [0, 0], [0, 0]],
+        "type": "product_zone",
+        "pos_departments": ["hair"],
+        "description": "Haircare section — Alps Goodness, Bare Anatomy, Lakme"
+      },
+      "PERSONAL_CARE": {
+        "polygon": [[0, 0], [0, 0], [0, 0], [0, 0]],
+        "type": "product_zone",
+        "pos_departments": ["personal-care", "bath-and-body"],
+        "description": "Personal care & bath-body — DERMDOC foot cream, Carmesi razors"
+      },
+      "BILLING": {
+        "polygon": [[1440, 0], [1920, 0], [1920, 1080], [1440, 1080]],
+        "type": "billing",
+        "description": "Billing counter area — cashier desks"
+      },
+      "STORAGE": {
+        "polygon": [[0, 0], [0, 0], [0, 0], [0, 0]],
+        "type": "staff_only",
+        "description": "Staff-only storage area"
+      }
+    },
+    "department_to_zone": {
+      "makeup": "MAKEUP",
+      "skin": "SKINCARE",
+      "fragrance": "FRAGRANCE",
+      "hair": "HAIRCARE",
+      "personal-care": "PERSONAL_CARE",
+      "bath-and-body": "PERSONAL_CARE"
+    },
+    "entry_line": {
+      "start": [0, 500],
+      "end": [200, 500],
+      "direction": "horizontal"
+    },
+    "billing_zone_key": "BILLING",
+    "clip_start_time": "2026-04-10T12:15:00Z",
+    "clip_duration_minutes": 20,
+    "active_cashiers": 2,
+    "pos_date": "2026-04-10",
+    "pos_time_range": {
+      "start": "12:15:05",
+      "end": "21:39:55"
+    },
+    "salespersons": {
+      "CL1997": "Shashikala",
+      "CL2063": "kasthuri v",
+      "CL2541": "Naziya Begum",
+      "CL2680": "Priya v",
+      "CL2727": "Zufishan Khazra"
+    }
+  }
+}
